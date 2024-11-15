@@ -10,10 +10,21 @@
     <h1>Find Your Course Syllabus</h1>
     <form id="syllabusForm">
         <label for="schoolYear">School Year:</label>
-        <input type="text" id="schoolYear" name="schoolYear" required><br><br>
+        <select id="schoolYear" name="schoolYear" required>
+            <option value="" disabled selected>Select Year</option>
+            <option value="2022">2022-2023</option>
+            <option value="2023">2023-2024</option>
+            <option value="2024">2024-2025</option>
+            <!-- Add more years as needed -->
+        </select><br><br>
 
         <label for="semester">Semester:</label>
-        <input type="text" id="semester" name="semester" required><br><br>
+        <select id="semester" name="semester" required>
+            <option value="" disabled selected>Select Semester</option>
+            <option value="1">First Semester</option>
+            <option value="2">Second Semester</option>
+            <option value="0">Intersession</option>
+        </select><br><br>
 
         <label for="depCode">Department Code:</label>
         <input type="text" id="depCode" name="depCode" required><br><br>
@@ -41,7 +52,7 @@
             const depCode = document.getElementById("depCode").value;
             const subCode = document.getElementById("subCode").value;
             const pLast = document.getElementById("pLast").value;
-            const pFirst = document.getElementById("pFirst").value;
+            const pFirst = document.getElementById("pFirst").value.charAt(0);
             const section = document.getElementById("section").value;
 
             // Construct URL with parameters in specified format
