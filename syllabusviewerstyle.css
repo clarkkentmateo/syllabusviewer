@@ -18,7 +18,7 @@ body {
 h1 {
     text-align: center;
     color: #0044cc;
-    margin-bottom: 25px; /* Reduced space between header and form */
+    margin-bottom: 25px;
     font-size: 2rem;
 }
 
@@ -35,23 +35,35 @@ form {
 /* Form elements */
 label {
     font-size: 1rem;
-    margin-bottom: 4px; /* Reduced margin between label and input */
+    margin-bottom: 4px;
     display: block;
     font-weight: bold;
     color: #444;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
     width: 100%;
     padding: 8px;
     border: 2px solid #ccc;
     border-radius: 4px;
-    margin-bottom: 0px; /* Reduced space between fields */
+    margin-bottom: 10px;
     font-size: 0.9rem;
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus {
+/* Dropdown (select) styling */
+select {
+    appearance: none; /* Remove default dropdown arrow */
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%230044cc'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+}
+
+input[type="text"]:focus,
+select:focus {
     border-color: #0044cc;
     outline: none;
 }
@@ -80,7 +92,7 @@ button:active {
 /* Link display */
 #syllabusLink {
     text-align: center;
-    margin-top: 10px; /* Reduced space between button and link */
+    margin-top: 10px;
     font-size: 1rem;
 }
 
