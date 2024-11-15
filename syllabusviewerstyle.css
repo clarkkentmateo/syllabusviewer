@@ -1,0 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #0044cc;
+    margin-bottom: 25px; /* Reduced space between header and form */
+    font-size: 2rem;
+}
+
+/* Form container */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Form elements */
+label {
+    font-size: 1rem;
+    margin-bottom: 4px; /* Reduced margin between label and input */
+    display: block;
+    font-weight: bold;
+    color: #444;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 0px; /* Reduced space between fields */
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #0044cc;
+    outline: none;
+}
+
+/* Submit button */
+button {
+    background-color: #0044cc;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0033aa;
+}
+
+button:active {
+    background-color: #002288;
+}
+
+/* Link display */
+#syllabusLink {
+    text-align: center;
+    margin-top: 10px; /* Reduced space between button and link */
+    font-size: 1rem;
+}
+
+#syllabusLink a {
+    color: #0044cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#syllabusLink a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}

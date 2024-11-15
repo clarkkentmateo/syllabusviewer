@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Syllabus Finder</title>
+    <link rel="stylesheet" href="syllabusviewerstyle.css">
+</head>
+<body>
+    <h1>Find Your Course Syllabus</h1>
+    <form id="syllabusForm">
+        <label for="schoolYear">School Year:</label>
+        <input type="text" id="schoolYear" name="schoolYear" required><br><br>
+
+        <label for="semester">Semester:</label>
+        <input type="text" id="semester" name="semester" required><br><br>
+
+        <label for="depCode">Department Code:</label>
+        <input type="text" id="depCode" name="depCode" required><br><br>
+
+        <label for="subCode">Subject Code:</label>
+        <input type="text" id="subCode" name="subCode" required><br><br>
+
+        <label for="pLast">Professor Last Name:</label>
+        <input type="text" id="pLast" name="pLast" required><br><br>
+
+        <label for="pFirst">Professor First Name:</label>
+        <input type="text" id="pFirst" name="pFirst" required><br><br>
+
+        <label for="section">Section:</label>
+        <input type="text" id="section" name="section" required><br><br>
+
+        <button type="button" id="generateSyllabus">View Syllabus</button>
+    </form>
+
+    <script>
+        document.getElementById("generateSyllabus").addEventListener("click", function() {
+            // Get input values
+            const schoolYear = document.getElementById("schoolYear").value;
+            const semester = document.getElementById("semester").value;
+            const depCode = document.getElementById("depCode").value;
+            const subCode = document.getElementById("subCode").value;
+            const pLast = document.getElementById("pLast").value;
+            const pFirst = document.getElementById("pFirst").value;
+            const section = document.getElementById("section").value;
+
+            // Construct URL with parameters in specified format
+            const syllabusUrl = `https://aisis.ateneo.edu/syllabi/${encodeURIComponent(schoolYear)}/${encodeURIComponent(semester)}/CS-${encodeURIComponent(depCode)}-${encodeURIComponent(subCode)}-${encodeURIComponent(pLast)}_${encodeURIComponent(pFirst)}-${encodeURIComponent(section)}-${encodeURIComponent(schoolYear)}-${encodeURIComponent(semester)}.pdf`;
+
+            // Open the syllabus link in a new tab
+            window.open(syllabusUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
