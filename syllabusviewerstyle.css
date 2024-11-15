@@ -1,126 +1,107 @@
-/* General Reset */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Body */
 body {
-    font-family: 'Arial', sans-serif;
     background-color: #f4f7fc;
     color: #333;
-    line-height: 1.6;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Header */
 h1 {
-    text-align: center;
-    color: #0044cc;
-    margin-bottom: 25px;
-    font-size: 2rem;
+    text-align: left;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-right: 50px;
 }
 
-/* Form container */
+/* Form Styles */
 form {
     background-color: #fff;
-    padding: 20px;
     border-radius: 8px;
+    padding: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     max-width: 500px;
-    margin: 0 auto;
+    margin-right:75px;
 }
 
-/* Form elements */
 label {
     font-size: 1rem;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     display: block;
+    color: #2c3e50;
     font-weight: bold;
-    color: #444;
 }
 
-input[type="text"],
-select {
+input, select, button {
     width: 100%;
-    padding: 8px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    transition: border-color 0.3s ease;
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s;
 }
 
-/* Dropdown (select) styling */
-select {
-    appearance: none; /* Remove default dropdown arrow */
-    background-color: #fff;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z' fill='%230044cc'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 16px;
-}
-
-input[type="text"]:focus,
-select:focus {
-    border-color: #0044cc;
+input:focus, select:focus, button:focus {
+    border-color: #3498db;
     outline: none;
 }
 
-/* Submit button */
 button {
-    background-color: #0044cc;
+    background-color: #3498db;
     color: #fff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 5px;
+    font-weight: bold;
     cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0033aa;
+    background-color: #2980b9;
 }
 
-button:active {
-    background-color: #002288;
+/* Placeholder Styling */
+input::placeholder, select::placeholder {
+    color: #7f8c8d;
+    font-style: italic;
 }
 
-/* Link display */
-#syllabusLink {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 1rem;
+/* Spacing and Layout */
+select, input[type="text"] {
+    margin-top: 8px;
 }
 
-#syllabusLink a {
-    color: #0044cc;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#syllabusLink a:hover {
-    text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-
+/* Responsiveness */
+@media (max-width: 600px) {
     h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        width: 30%;
     }
 
     form {
-        padding: 15px;
+        padding: 20px;
+        width: 70%;
     }
 
-    button {
+    label {
         font-size: 0.9rem;
+    }
+
+    input, select, button {
+        font-size: 0.9rem;
+        padding: 8px;
     }
 }
