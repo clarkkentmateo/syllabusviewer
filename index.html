@@ -9,16 +9,16 @@
 <body>
     <h1>Find Your Course Syllabus</h1>
     <form id="syllabusForm">
-        <label for="schoolYear">School Year:</label>
+        <label for="schoolYear" class="required">School Year:</label>
         <select id="schoolYear" name="schoolYear" required>
             <option value="" disabled selected>Select Year</option>
+            <option value="2021">2021-2022</option>
             <option value="2022">2022-2023</option>
             <option value="2023">2023-2024</option>
             <option value="2024">2024-2025</option>
-            <!-- Add more years as needed -->
         </select><br><br>
 
-        <label for="semester">Semester:</label>
+        <label for="semester" class="required">Semester:</label>
         <select id="semester" name="semester" required>
             <option value="" disabled selected>Select Semester</option>
             <option value="1">First Semester</option>
@@ -26,19 +26,63 @@
             <option value="0">Intersession</option>
         </select><br><br>
 
-        <label for="depCode">Department Code:</label>
-        <input type="text" id="depCode" name="depCode" required><br><br>
+        <label for="depCode" class="required">Department Code:</label>
+        <select id="depCode" name="depCode" required>
+            <option value="" disabled selected>Select Department</option>
+            <option value="BIO">BIO - Biology</option>
+            <option value="CH">CH - Chemistry</option>
+            <option value="CHN">CHN - Chinese Studies Program</option>
+            <option value="COM">COM - Communication</option>
+            <option value="CEPP">CEPP - Department of Catholic Education Philosophy and Practice</option>
+            <option value="CPA">CPA - Department of Curriculum, Pedagogy and Assessment</option>
+            <option value="ELM">ELM - Department of Educational Leadership and Management</option>
+            <option value="DS">DS - Development Studies Program</option>
+            <option value="EC">EC - Economics</option>
+            <option value="ED">ED - Education</option>
+            <option value="ECE">ECE - Electronics, Computer, and Communications Engineering</option>
+            <option value="EN">EN - English</option>
+            <option value="ES">ES - Environmental Science</option>
+            <option value="EU">EU - European Studies</option>
+            <option value="FIL">FIL - Filipino</option>
+            <option value="FAA">FAA - Finance and Accounting</option>
+            <option value="FA">FA - Fine Arts</option>
+            <option value="HSP">HSP - Health Sciences Program</option>
+            <option value="HI">HI - History</option>
+            <option value="SOHUM">SOHUM - Humanities</option>
+            <option value="DISCS">DISCS - Information Systems and Computer Science</option>
+            <option value="INTAC">INTAC - Introduction to Ateneo Culture and Traditions</option>
+            <option value="IS">IS - Interdisciplinary Studies Department</option>
+            <option value="JSP">JSP - Japanese Studies Program</option>
+            <option value="KSP">KSP - Korean Studies Program</option>
+            <option value="LAS">LAS - Leadership and Strategy</option>
+            <option value="MAL">MAL - Marketing and Law</option>
+            <option value="MA">MA - Mathematics</option>
+            <option value="ML">ML - Modern Languages</option>
+            <option value="NSTP (ADAST)">NSTP (ADAST) - National Service Training Program (ADAST)</option>
+            <option value="NSTP (OSCI)">NSTP (OSCI) - National Service Training Program (OSCI)</option>
+            <option value="PH">PH - Philosophy</option>
+            <option value="PE">PE - Physical Education</option>
+            <option value="PS">PS - Physics</option>
+            <option value="POS">POS - Political Science</option>
+            <option value="PSY">PSY - Psychology</option>
+            <option value="QMIT">QMIT - Quantitative Methods and Information Technology</option>
+            <option value="SB">SB - Science Block</option>
+            <option value="SOCSCI">SOCSCI - Social Sciences</option>
+            <option value="SA">SA - Sociology/Anthropology</option>
+            <option value="TH">TH - Theology</option>
+            <option value="TMP">TMP - Theology and Ministry Program</option>
+        </select><br><br>
 
-        <label for="subCode">Subject Code:</label>
+        <label for="subCode" class="required">Subject Code:</label>
         <input type="text" id="subCode" name="subCode" required><br><br>
 
-        <label for="pLast">Professor Last Name:</label>
+        <label for="pLast" class="required">Professor's Last Name:</label>
         <input type="text" id="pLast" name="pLast" required><br><br>
 
-        <label for="pFirst">Professor First Name:</label>
+        <label for="pFirst" class="required">Professor's First Name:</label>
         <input type="text" id="pFirst" name="pFirst" required><br><br>
 
-        <label for="section">Section:</label>
+        <label for="section" class="required">Section:</label>
         <input type="text" id="section" name="section" required><br><br>
 
         <button type="button" id="generateSyllabus">View Syllabus</button>
@@ -52,11 +96,17 @@
             const depCode = document.getElementById("depCode").value;
             const subCode = document.getElementById("subCode").value;
             const pLast = document.getElementById("pLast").value;
-            const pFirst = document.getElementById("pFirst").value.charAt(0);
+            const pFirst = document.getElementById("pFirst").value;
             const section = document.getElementById("section").value;
 
-            // Construct URL with parameters in specified format
-            const syllabusUrl = `https://aisis.ateneo.edu/syllabi/${encodeURIComponent(schoolYear)}/${encodeURIComponent(semester)}/CS-${encodeURIComponent(depCode)}-${encodeURIComponent(subCode)}-${encodeURIComponent(pLast)}_${encodeURIComponent(pFirst)}-${encodeURIComponent(section)}-${encodeURIComponent(schoolYear)}-${encodeURIComponent(semester)}.pdf`;
+            // Check if all fields are filled
+            if (!schoolYear || !semester || !depCode || !subCode || !pLast || !pFirst || !section) {
+                alert("Please fill in all fields.");
+                return; // Stop execution if fields are not filled
+            }
+
+            // Convert values to uppercase and remove spaces from subject code
+            const syllabusUrl = `https://aisis.ateneo.edu/syllabi/${encodeURIComponent(schoolYear)}/${encodeURIComponent(semester)}/CS-${encodeURIComponent(depCode)}-${encodeURIComponent(subCode.replace(/\s+/g, ''))}-${encodeURIComponent(pLast)}_${encodeURIComponent(pFirst.charAt(0).toUpperCase())}-${encodeURIComponent(section)}-${encodeURIComponent(schoolYear)}-${encodeURIComponent(semester)}.pdf`;
 
             // Open the syllabus link in a new tab
             window.open(syllabusUrl, '_blank');
