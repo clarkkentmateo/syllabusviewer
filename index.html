@@ -91,13 +91,13 @@
     <script>
         document.getElementById("generateSyllabus").addEventListener("click", function() {
             // Get input values
-            const schoolYear = document.getElementById("schoolYear").value;
-            const semester = document.getElementById("semester").value;
-            const depCode = document.getElementById("depCode").value;
-            const subCode = document.getElementById("subCode").value;
-            const pLast = document.getElementById("pLast").value;
-            const pFirst = document.getElementById("pFirst").value;
-            const section = document.getElementById("section").value;
+            const schoolYear = document.getElementById("schoolYear").value.toUpperCase();
+            const semester = document.getElementById("semester").value.toUpperCase();
+            const depCode = document.getElementById("depCode").value.toUpperCase();
+            const subCode = document.getElementById("subCode").value.replace(/\s+/g, '').toUpperCase();
+            const pLast = document.getElementById("pLast").value.toUpperCase();
+            const pFirst = document.getElementById("pFirst").value.charAt(0).toUpperCase();
+            const section = document.getElementById("section").value.toUpperCase();
 
             // Check if all fields are filled
             if (!schoolYear || !semester || !depCode || !subCode || !pLast || !pFirst || !section) {
